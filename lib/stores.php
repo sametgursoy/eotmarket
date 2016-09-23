@@ -87,14 +87,16 @@ class Store{
   {
     $sql = "SELECT * FROM stores WHERE user=" . $user . " limit 1";
 
+
     $result = $this->_mysqli->query($sql);
 
-    if (empty($result->fetch_assoc()))
+    $row = $result->fetch_assoc();
+
+    if (empty($row))
     {
       return false;
     }
     else {
-      $row = $result->fetch_assoc();
       $this->_id = $row['id'];
       $this->_name = $row['name'];
 

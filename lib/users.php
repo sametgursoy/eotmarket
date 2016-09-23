@@ -20,17 +20,9 @@ class User{
    {
        return $this->_id;
    }
-   private function setId($id = null,$email = null )
+   private function setId($id)
     {
-      if ($email) {
-        $sql = sprintf("Select id from users WHERE email='%s'",  $email);
-        $result = $this->_mysqli->query($sql);
-        $row = $result->fetch_assoc();
-        $this->_id = $row['id'];
-      }
-      if ($id) {
-        $this->_id = $id;
-      }
+      $this->_id = $id;
     }
 
   public function setFirstName($name)
@@ -92,7 +84,8 @@ class User{
 
        $sql = sprintf("Insert INTO users (firstname,lastname,email,password) Values('%s','%s','%s',md5('%s'))",$this->_firstname,$this->_lastname,$this->_email,$this->_password);
        $result = $this->_mysqli->query($sql);
-       $this->setId(null,$this->_email);
+       $this->setId($this->_mysqli->insert_id);
+
        $this->login();
        return true;
 
