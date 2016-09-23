@@ -1,0 +1,13 @@
+<?php
+$host = "localhost";
+$username = "xxx";
+$password = "xxx";
+$dbname = "xxx";
+
+$config = array(
+ 'host' => $host,
+ 'username' => $username,
+ 'password' => $password,
+ 'dbname' => $dbname,
+);
+?>
