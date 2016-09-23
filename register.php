@@ -45,6 +45,8 @@ if( isset($_SESSION['user']) && $_SESSION['user']['login'] == true)  header('loc
   </head>
   <body>
    <?php require_once 'header.php'; ?>
+   <?php require_once 'utils/message.php' ?>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12" style="text-align:center;">
@@ -79,14 +81,7 @@ if( isset($_SESSION['user']) && $_SESSION['user']['login'] == true)  header('loc
 
           <input class="btn btn-primary" type="submit"  value="Gönder">
         </form>
-        <?php
-        if( isset($_SESSION['message']))
-        {
-           echo "<br> <div class='alert alert-info'>". $_SESSION['message'] ."</div>";
-           $_SESSION['message'] = null;
-        }
 
-        ?>
 
       </div>
 

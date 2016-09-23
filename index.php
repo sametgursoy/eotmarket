@@ -24,6 +24,7 @@ require_once 'lib/eotclass.php';
   </head>
   <body>
      <?php require_once 'header.php'; ?>
+      <?php require_once 'utils/message.php' ?>
     <div class="container">
       <div class="row">
         <div class="col-xs-12" style="text-align:center;">
