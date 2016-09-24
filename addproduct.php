@@ -26,7 +26,7 @@ if($_POST) {
     $product->setUrl($_POST['url']);
     $product->createProduct();
     $_SESSION['message'] = 'Ürün kayıt edildi.';
-    echo "<meta http-equiv=\"refresh\" content=\"1;url=index.php\"/>";
+    header('Location:store.php');
   }
 
 
@@ -53,6 +53,7 @@ if($_POST) {
    </head>
    <body>
      <?php require_once 'header.php'; ?>
+     <?php require_once 'utils/message.php'; ?>
      <div class="container">
        <div class="row">
          <div class="col-xs-12" style="text-align:center;">
@@ -80,15 +81,6 @@ if($_POST) {
 
                <input class="btn btn-primary" type="submit"  value="Gönder">
              </form>
-             <?php
-             if( isset($_SESSION['message']))
-             {
-                echo "<br> <div class='alert alert-info'>". $_SESSION['message'] ."</div>";
-                $_SESSION['message'] = null;
-             }
-
-             ?>
-
            </div>
 
 

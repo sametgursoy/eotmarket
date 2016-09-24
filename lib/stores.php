@@ -86,10 +86,7 @@ class Store{
   public function checkStore($user)
   {
     $sql = "SELECT * FROM stores WHERE user=" . $user . " limit 1";
-
-
     $result = $this->_mysqli->query($sql);
-
     $row = $result->fetch_assoc();
 
     if (empty($row))
@@ -104,6 +101,16 @@ class Store{
       return true;
     }
 
+  }
+  public function getStoreItems($id)
+  {
+    $sql = "SELECT id FROM products WHERE store=" . $id ;
+    $result = $this->_mysqli->query($sql);
+    if ($result){
+      return $result;
+    }else {
+      return false;
+    }
   }
 
 

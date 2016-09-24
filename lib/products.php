@@ -74,10 +74,22 @@ class Product
     public function createProduct()
     {
       $sql = sprintf("Insert INTO products (name,price,store,photo,url) Values('%s','%.2f',%d,'%s','%s')",$this->_name,$this->_price,$this->_store,$this->_photo,$this->_url);
-      
+
       $result = $this->_mysqli->query($sql);
       $this->setId($this->_mysqli->insert_id);
       return true;
+    }
+
+    public function getProduct($id)
+    {
+      $sql = "SELECT * from products WHERE id = " . $id ;
+      $result = $this->_mysqli->query($sql);
+      $row = $result->fetch_assoc();
+      if ($row) {
+        return $row;
+      }else {
+        return false;
+      }
     }
 }
  ?>
