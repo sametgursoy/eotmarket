@@ -61,10 +61,11 @@ class Store{
     $sql =  sprintf("INSERT INTO stores (name,user) VALUES('%s',%d)",$name,$user);
 
     $result = $this->_mysqli->query($sql);
+    
     if (!$result) return false;
 
     //get and set storeID
-    $this->setId(null,$user);
+	$this->setId($this->_mysqli->insert_id,null);
 
     $this->setName($name);
 

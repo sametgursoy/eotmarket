@@ -1,12 +1,16 @@
 <?php
 session_start();
 if(!isset($_SESSION['user'])) header('Location:login.php');
+if(!isset($_SESSION['store'])) header('Location:createstore.php');
 
 require_once 'lib/settings.php';
 require_once 'lib/eotclass.php';
+	
+print_r($_SESSION['store']);
 
 $store = new Store($config);
 $storeItems = $store->getStoreItems($_SESSION['store']['id']);
+
 $storeName = $_SESSION['store']['name'];
  ?>
 <!DOCTYPE html>
