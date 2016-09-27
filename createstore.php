@@ -1,14 +1,9 @@
 <?php
-session_start();
-
-
+require_once 'lib/eotclass.php';
 
 if(!isset($_SESSION['user'])) header('Location:login.php');
 
 if($_POST) {
-  require_once 'lib/settings.php';
-  require_once 'lib/eotclass.php';
-
 
   $store = new Store($config);
 

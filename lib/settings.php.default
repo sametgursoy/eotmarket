@@ -1,13 +1,7 @@
 <?php
-$host = "localhost";
-$username = "xxx";
-$password = "xxx";
-$dbname = "xxx";
 
-$config = array(
- 'host' => $host,
- 'username' => $username,
- 'password' => $password,
- 'dbname' => $dbname,
-);
+define('MYSQL_USER', 'root');
+define('MYSQL_PASS', 'xxx');
+define('MYSQL_DB', 'xxx');
+define('MYSQL_HOST', '127.0.0.1');
 ?>

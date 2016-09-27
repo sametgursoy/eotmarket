@@ -1,6 +1,4 @@
 <?php
-session_start();
-require_once 'lib/settings.php';
 require_once 'lib/eotclass.php';
 
  ?>

@@ -1,6 +1,11 @@
 <?php
-require_once 'users.php';
-require_once 'stores.php';
-require_once 'products.php';
+
+function generalAutoLoad($className){
+    require_once 'lib/settings.php';
+    require_once "lib/". $className. ".php";
+}
+
+spl_autoload_register('generalAutoLoad');
+session_start();
 
  ?>

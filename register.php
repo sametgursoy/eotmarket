@@ -1,9 +1,7 @@
 <?php
-session_start();
+require_once 'lib/eotclass.php';
 
 if($_POST) {
-  require_once 'lib/settings.php';
-  require_once 'lib/eotclass.php';
 
   $register = new User($config);
   $register->setFirstName($_POST['firstname']);

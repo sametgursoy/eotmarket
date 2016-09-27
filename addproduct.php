@@ -1,16 +1,11 @@
 <?php
-session_start();
 
-
+require_once 'lib/eotclass.php';
 
 if(!isset($_SESSION['user'])) header('Location:login.php');
 if(!isset($_SESSION['store'])) header('Location:createstore.php');
 
 if($_POST) {
-  require_once 'lib/settings.php';
-  require_once 'lib/eotclass.php';
-
-
 
   if(!is_numeric($_POST['price']))
   {
@@ -18,7 +13,7 @@ if($_POST) {
   }
   else {
 
-    $product = new Product($config);
+    $product = new Product();
     $product->setName($_POST['name']);
     $product->setPrice($_POST['price']);
     $product->setStore($_SESSION['store']['id']);
@@ -28,7 +23,6 @@ if($_POST) {
     $_SESSION['message'] = 'Ürün kayıt edildi.';
     header('Location:store.php');
   }
-
 
 }
 

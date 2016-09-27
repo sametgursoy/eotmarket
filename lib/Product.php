@@ -10,12 +10,9 @@ class Product
   protected $_url = null;
   protected $_mysqli = false;
 
-  public function __construct($config = null)
+  public function __construct()
    {
-     if ($config) {
-       $this->_mysqli = new mysqli($config['host'], $config['username'], $config['password'], $config['dbname']);
-     }
-
+       $this->_mysqli = new mysqli(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB);
    }
 
    public function getId()

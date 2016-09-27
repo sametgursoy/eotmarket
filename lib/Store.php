@@ -6,12 +6,9 @@ class Store{
   protected $_user = "";
   protected $_mysqli = false;
 
-  public function __construct($config = null)
+  public function __construct()
    {
-     if ($config) {
-       $this->_mysqli = new mysqli($config['host'], $config['username'], $config['password'], $config['dbname']);
-     }
-
+       $this->_mysqli = new mysqli(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB);
    }
 
   public function getId()
@@ -61,11 +58,10 @@ class Store{
     $sql =  sprintf("INSERT INTO stores (name,user) VALUES('%s',%d)",$name,$user);
 
     $result = $this->_mysqli->query($sql);
-    
     if (!$result) return false;
 
     //get and set storeID
-	$this->setId($this->_mysqli->insert_id,null);
+    $this->setId($this->_mysqli->insert_id,null);
 
     $this->setName($name);
 
